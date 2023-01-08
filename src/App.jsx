@@ -1,18 +1,16 @@
+import Home from "./page/Home";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import {Link,Route, Router} from "wouter"
-import Home from "./page/Home"
-
-
-
+const queryClient = new QueryClient();
 
 function App() {
-
-
   return (
-    <div>
-
-    </div>
-  )
+    <QueryClientProvider client={queryClient}>
+      <div>
+        <Home />
+      </div>
+    </QueryClientProvider>
+  );
 }
 
-export default App
+export default App;
