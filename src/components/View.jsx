@@ -5,7 +5,7 @@ import { getProducts } from "../services/fechtProduct";
 
 export default function View() {
   const { data } = useQuery({ queryKey: ["products"], queryFn: getProducts });
-  console.log(data);
+
   return (
     <div className="p-4">
       <div className="flex justify-between py-2">

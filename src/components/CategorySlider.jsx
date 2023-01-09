@@ -4,14 +4,14 @@ import { getCategories } from "../services/fechtProduct";
 
 export default function CategorySlider() {
   const { data } = useQuery({
-    queryHash: ["categories"],
+    queryKey: ["categories"],
     queryFn: getCategories,
   });
 
   return (
     <div className="p-2 flex gap-2">
-      {data?.map((category) => (
-        <Category title={category} />
+      {data?.map((category,i) => (
+        <Category key={i} title={category} />
       ))}
     </div>
   );

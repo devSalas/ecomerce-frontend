@@ -10,7 +10,7 @@ export function getProducts() {
 export function getCategories() {
   return axios.get("https://fakestoreapi.com/products/categories")
     .then(res=>{
-      console.log(res)
+
       return res.data
     })
 }

@@ -10,38 +10,13 @@ const ProductDetails =() => {
     queryKey: ["products","id"],
      queryFn:()=> getProductById(id)
     });
-    
-    /* 
-    
-    category
-: 
-"men's clothing"
-description
-: 
-"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket."
-id
-: 
-2
-image
-: 
-"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-price
-: 
-22.3
-rating
-: 
-{rate: 4.1, count: 259}
-title
-: 
-"Mens Casual Premium Slim Fit T-Shirts "
-    */
 
   if(isLoading)return (<div>cargando ...</div>)
     
   console.log(data)
 
   return (
-    <div className="h-screen w-full grid  max-w-lg   md:px-4 md:grid-cols-8 md:max-w-6xl m-auto">
+    <div className="h-screen w-full grid  max-w-lg grid-rows-[10% ,50% ,40%] md:grid-rows-[200px,1fr]   md:px-4 md:grid-cols-8 md:max-w-6xl m-auto">
       <nav className="w-full   text-white flex justify-between p-2 pt-4 md:col-span-8">
         <button> {"<-"} </button>
 
@@ -53,10 +28,10 @@ title
           </a></div>
       </nav>
 
-      <div className="md:col-span-3 h-auto">
+      <div className=" md:col-span-3 h-auto">
 
-      <figure className="  w-full  relative left-0 right-0  md:max-w-sm ">
-        <img className="w-full h-full md:h-auto " src={data?.image} alt="" />
+      <figure className="h-full sm:m-auto  md:max-w-sm  sm:max-h-56  sm:aspect-square ">
+        <img className="m-auto sm:w-full h-full max-h-80 md:h-auto " src={data?.image} alt="" />
       </figure>
 
       </div>
@@ -79,12 +54,6 @@ title
             <span className="px-2">{data?.price}</span>
           </button>
         </div>
-      </div>
-     
-
-      <div className="md:col-span-8  flex flex-col justify-center items-center">
-
-
       </div>
 
 
