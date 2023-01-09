@@ -1,8 +1,5 @@
-
-import {Link,Route, Router} from "wouter"
 import Home from "./page/Home"
-
-
+import ProductDetails from "./page/ProductDetails"
 
 
 function App() {
@@ -10,7 +7,7 @@ function App() {
 
   return (
     <div>
-
+      <ProductDetails/>
     </div>
   )
 }
