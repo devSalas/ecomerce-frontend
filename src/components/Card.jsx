@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useStore from "../zustand/store";
 
-export default function Card({id, title, description, image, price }) {
+export default function Card({ id, title, description, image, price }) {
   const [like, setLike] = useState(false);
+
+  const store = useStore();
 
   const handleChange = (e) => {
     setLike(!like);
@@ -10,16 +13,24 @@ export default function Card({id, title, description, image, price }) {
   };
 
   const handleClick = (e) => {
-    
+    store.addProduct({
+      id,
+      title,
+      image,
+      price,
+    });
   };
 
   return (
     <div className=" relative">
       <div className="border aspect-square p-2">
         <Link to={`/productDetails/${id}`}>
-        
-        <img onClick={handleClick} className="w-full h-full object-contain" src={image} alt={title} />
-
+          <img
+            onClick={handleClick}
+            className="w-full h-full object-contain"
+            src={image}
+            alt={title}
+          />
         </Link>
 
         <input
