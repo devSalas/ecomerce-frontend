@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getProducts, getProductById } from "../services/fechtProduct";
 import {useStore} from "../zustand/store";
 
@@ -27,9 +27,13 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="h-screen w-full grid  max-w-lg grid-rows-[10% ,50% ,40%] md:grid-rows-[200px,1fr]   md:px-4 md:grid-cols-8 md:max-w-6xl m-auto">
-      <nav className="w-full   text-white flex justify-between p-2 pt-4 md:col-span-8">
-        <button> {"<-"} </button>
+    <div className="h-screen w-full grid  max-w-lg grid-rows-[10% ,50% ,40%] md:grid-rows-[100px,1fr]   md:px-4 md:grid-cols-8 md:max-w-6xl m-auto">
+      <nav className="w-full   text-white flex justify-between items-center p-2 pt-4 md:col-span-8">
+        <button className="  p-2 sm:p-0 rounded-sm"> 
+        <Link to="/">
+          <img className="w-10 border-2 border-black p-2 rounded-sm" src="../../public/back.png"  alt="" /> 
+        </Link> 
+        </button>
 
         <h1 className="text-black font-bold text-2xl">Producto Detalles</h1>
 
