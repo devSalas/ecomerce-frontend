@@ -9,7 +9,6 @@ export default function Card({ id, title, description, image, price }) {
 
   const handleChange = (e) => {
     setLike(!like);
-    console.log(like);
   };
 
   const handleClick = (e) => {
@@ -26,7 +25,6 @@ export default function Card({ id, title, description, image, price }) {
       <div className="border aspect-square p-2">
         <Link to={`/productDetails/${id}`}>
           <img
-            onClick={handleClick}
             className="w-full h-full object-contain"
             src={image}
             alt={title}

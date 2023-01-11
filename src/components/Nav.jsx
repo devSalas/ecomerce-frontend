@@ -1,29 +1,23 @@
-import { useState } from "react";
 import Carrito from "./Carrito";
-import useStore from "../zustand/store";
+import AuthenticateUser from "./AuthenticateUser";
+import Profile from "./Profile";
+import { Link } from "react-router-dom";
 
 export default function Nav() {
-  const [active, setActive] = useState(false);
-
-  const store = useStore();
-
-  const handleClick = (e) => {
-    setActive(!active);
-  };
-
   return (
-    <div className=" flex justify-center">
-      <button
-        className="bg-[url('/public/shopping.svg')] bg-cover w-10 h-10"
-        onClick={handleClick}
-      >
-        {store.products.length === 0 ? null : (
-          <span className="bg-red-500 w-6 h-6 absolute rounded-full text-white">
-            {store.products.length}
-          </span>
-        )}
-      </button>
-      {active ? <Carrito click={handleClick} /> : null}
+    <div className="border">
+      <div className="flex justify-between px-2 py-2 items-center max-w-7xl m-auto">
+        <div>
+          <Link to="/">
+            <img className="h-12" src="logo.png" alt="" />
+          </Link>
+        </div>
+        <div className="flex gap-4">
+          <AuthenticateUser />
+          <Profile />
+          <Carrito />
+        </div>
+      </div>
     </div>
   );
 }
