@@ -12,6 +12,7 @@ export default function Card({ id, title, description, image, price }) {
   const store = useStore();
 
   const handleChange = (e) => {
+
      const isLike = likeProduct.includes(id)
      console.log(isLike)
      if(isLike) {
@@ -41,7 +42,6 @@ export default function Card({ id, title, description, image, price }) {
       <div className="border aspect-square p-2">
         <Link to={`/productDetails/${id}`}>
           <img
-            onClick={handleClick}
             className="w-full h-full object-contain"
             src={image}
             alt={title}
