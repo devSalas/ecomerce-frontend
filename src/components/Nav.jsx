@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Carrito from "./Carrito";
-import useStore from "../zustand/store";
+import {useStore} from "../zustand/store";
 
 export default function Nav() {
   const [active, setActive] = useState(false);

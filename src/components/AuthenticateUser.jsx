@@ -32,7 +32,6 @@ const Logout = () => {
 
 const AuthenticateUser = () => {
   const {user,isAuthenticated,isLoading} =useAuth0();
-  console.log({user,isAuthenticated,isLoading})
   return( (!isAuthenticated) ?<LogIn/> :<Logout/>)
 }
 export default  AuthenticateUser

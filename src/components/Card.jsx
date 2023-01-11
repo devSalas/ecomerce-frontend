@@ -1,15 +1,26 @@
-import { useState } from "react";
+/* import { useState } from "react"; */
 import { Link } from "react-router-dom";
-import useStore from "../zustand/store";
+import {useStore, useStoreLike} from "../zustand/store";
 
 export default function Card({ id, title, description, image, price }) {
-  const [like, setLike] = useState(false);
+  /* const [like, setLike] = useState(false); */
+
+
+  const {likeProduct}=useStoreLike()
+  const {setLikeProduct}=useStoreLike()
 
   const store = useStore();
 
   const handleChange = (e) => {
-    setLike(!like);
-    console.log(like);
+     const isLike = likeProduct.includes(id)
+     console.log(isLike)
+     if(isLike) {
+      let delId = likeProduct.filter($id=> $id !=id)
+      setLikeProduct(delId)
+    }else{
+      setLikeProduct([...likeProduct,id])
+    }
+
   };
 
   const handleClick = (e) => {
@@ -19,7 +30,11 @@ export default function Card({ id, title, description, image, price }) {
       image,
       price,
     });
+
+
   };
+
+  console.log(likeProduct)
 
   return (
     <div className=" relative">
@@ -37,7 +52,7 @@ export default function Card({ id, title, description, image, price }) {
           className="absolute top-2 cursor-pointer right-2 appearance-none bg-[url('/public/me-gusta.png')] w-5 h-5 bg-cover checked:bg-[url('/public/corazon.png')]"
           type="checkbox"
           onChange={handleChange}
-          checked={like}
+          checked={likeProduct.includes(id)}
           name=""
           id=""
         />

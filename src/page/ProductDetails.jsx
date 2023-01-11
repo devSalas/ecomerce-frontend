@@ -11,6 +11,10 @@ const ProductDetails =() => {
      queryFn:()=> getProductById(id)
     });
 
+    
+
+
+
   if(isLoading)return (<div>cargando ...</div>)
     
   console.log(data)
