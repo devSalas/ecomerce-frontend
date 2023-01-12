@@ -1,10 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {useStore} from "../zustand/store";
 
 export default function CarritoModal({ click }) {
   const store = useStore();
-
+  
   const total = store.products.reduce((prev, curr) => prev + curr.price, 0);
+
+  const hanldeClick=(evt)=>{
+    store.setPriceTotal(total);
+  }
+
+
 
   return (
     <div className="border z-10 fixed top-0 right-0 md:right-0 bottom-0 md:w-96 w-full bg-white shadow-2xl p-4">
@@ -25,9 +32,11 @@ export default function CarritoModal({ click }) {
       <p className="p-4">
         Total a pagar: <span className="font-semibold">${total}</span>
       </p>
-      <button className="bg-sky-400 text-white py-2 px-4 rounded-full">
-        Pagar
-      </button>
+      <Link to="/paymenMethod" >
+        <button onClick={hanldeClick} className="bg-sky-400 text-white py-2 px-4 rounded-full">
+          Pagar
+        </button>
+      </Link>
     </div>
   );
 }

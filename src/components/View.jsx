@@ -6,7 +6,9 @@ import { getProducts } from "../services/fechtProduct";
 
 export default function View() {
 
-  let { data,isLoading } = useQuery({ queryKey: ["products"], queryFn: getProducts });
+  let { data,isLoading } = useQuery({ queryKey: ["products"], queryFn: getProducts },{
+  staleTime:60000
+  });
 
 
   if(isLoading) return ( <div>cargando...</div> )

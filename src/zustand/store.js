@@ -2,7 +2,11 @@ import create from 'zustand'
 
 export const  useStore = create((set) => ({
   products: [],
-  addProduct: (product) => set((state) => ({ products: [...state.products, product] })),
+  priceTotal: 0,
+  setPriceTotal:($price) =>set(state => ({...state,priceTotal:$price}) ),
+
+  addProduct: (product) => set(state => ({ products: [...state.products, product] })),
+  removeProduct: () => set(state => ({...state,products:[] })),
   /* removeAllBears: () => set({ products: 0 }), */
 }))
 
@@ -16,4 +20,10 @@ export const useStoreLike =create((set)=>({
   setLikeProduct:($like) => (set(state=>({likeProduct:$like})))
 }))
 
+export const useStoreModal =create((set)=>({
+  isActiveModal:true,
+  setActiveModal:($active) => (set(state=>({isActiveModal:$active})))
+}))
+
+ 
 

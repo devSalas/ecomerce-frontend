@@ -29,7 +29,7 @@ export default function Buscador() {
         </svg>
       </button>
       <input
-        className="outline-none "
+        className="outline-none w-full"
         type="search"
         name="keyword"
         id=""

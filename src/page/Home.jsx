@@ -14,7 +14,7 @@ const Home = () => {
       <div className="px-8 py-2 grid grid-cols-[1fr,70px] place-content-center  sm:grid-cols-[70%,15%,15%]">
         <Buscador />
       </div>
-      <CategorySlider />
+      {/* <CategorySlider /> */}
       {(keyword)?<SearchProducts/>:<View />}
     </div>
   );
