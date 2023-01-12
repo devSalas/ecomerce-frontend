@@ -2,13 +2,10 @@ import create from 'zustand'
 
 export const  useStore = create((set) => ({
   products: [],
+  addProduct: (product) => set((state) => ({ products: [...state.products, product] })),
+  removeProduct: (id) => set((state) => ({ products: state.products.filter(el=>el.id !== id)})),
   priceTotal: 0,
-  setPriceTotal:($price) =>set(state => ({...state,priceTotal:$price}) ),
-
-  addProduct: (product) => set(state => ({ products: [...state.products, product] })),
-  removeOneProduct: ($products) => set(state => ({ products: $products })),
-  
-  removeProduct: () => set(state => ({...state,products:[] })),
+  setPriceTotal:($price) =>set(state => ({...state,priceTotal:$price}) )
   
 }))
 
@@ -26,6 +23,3 @@ export const useStoreModal =create((set)=>({
   isActiveModal:false,
   setActiveModal:($active) => (set(state=>({isActiveModal:$active})))
 }))
-
- 
-

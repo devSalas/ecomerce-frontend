@@ -8,7 +8,7 @@ const Profile = () => {
       <div className=" overflow-hidden ">
         <img
           src="../../public/perfil.webp"
-          className="w-12 h-12 bg-neutral-300 rounded-full"
+          className="w-10 h-10 bg-neutral-300 rounded-full"
           alt=""
         />
       </div>
@@ -20,7 +20,7 @@ const Profile = () => {
       <div className=" overflow-hidden ">
         <img
           src={user?.picture}
-          className="w-12 h-12 bg-neutral-300 rounded-full"
+          className="w-10 h-10 bg-neutral-300 rounded-full"
           alt={user.name}
         />
       </div>

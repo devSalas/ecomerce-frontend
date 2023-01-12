@@ -1,20 +1,15 @@
-import React from "react";
 import Card from "./Card";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "../services/fechtProduct";
-
+import Spinner from "./Spinner";
 
 export default function View() {
-
-  let { data,isLoading } = useQuery({ queryKey: ["products"], queryFn: getProducts },{
-  staleTime:60000
+  let { data, isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: getProducts,
   });
 
-
-  if(isLoading) return ( <div>cargando...</div> )
-
-
-
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="p-4">
@@ -24,25 +19,16 @@ export default function View() {
       </div>
       <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ">
         {data?.map(({ id, title, description, price, image }) => (
-                <Card
-          key={id}
-          id={id}
-          title={title}
-          description={description}
-          price={price}
-          image={image}
-        />
-
+          <Card
+            key={id}
+            id={id}
+            title={title}
+            description={description}
+            price={price}
+            image={image}
+          />
         ))}
       </div>
-{/* 
-      <div>
-        {data?.map(({ id, title, description, price, image })=>{
-          if()
-        
-        
-        })}
-      </div> */}
     </div>
   );
 }

@@ -1,20 +1,20 @@
-import React from "react";
-import {useStoreSearchProduct} from '../zustand/store'
+import { useStoreSearchProduct } from "../zustand/store";
 
 export default function Buscador() {
+  const { setKeyword } = useStoreSearchProduct();
+  //const {keyword}=useStoreSearchProduct()
 
-  const {setKeyword}=useStoreSearchProduct()
-  const {keyword}=useStoreSearchProduct()
-
-  const handleSubmit =(evt)=>{
+  const handleSubmit = (evt) => {
     evt.preventDefault();
-    setKeyword(evt.target.keyword.value)
-    console.log(keyword)
-  }
-
+    setKeyword(evt.target.keyword.value);
+    //console.log(keyword)
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="border px-4 py-2 rounded-full flex gap-2">
+    <form
+      onSubmit={handleSubmit}
+      className="border px-4 py-2 rounded-full flex gap-2"
+    >
       <button className="">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -37,4 +37,4 @@ export default function Buscador() {
       />
     </form>
   );
-} 
+}

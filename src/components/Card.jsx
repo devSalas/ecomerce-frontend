@@ -1,26 +1,24 @@
 /* import { useState } from "react"; */
 import { Link } from "react-router-dom";
-import {useStore, useStoreLike} from "../zustand/store";
+import { useStore, useStoreLike } from "../zustand/store";
 
 export default function Card({ id, title, description, image, price }) {
   /* const [like, setLike] = useState(false); */
 
-
-  const {likeProduct}=useStoreLike()
-  const {setLikeProduct}=useStoreLike()
+  const { likeProduct } = useStoreLike();
+  const { setLikeProduct } = useStoreLike();
 
   const store = useStore();
 
   const handleChange = (e) => {
-
-     const isLike = likeProduct.includes(id)
-     if(isLike) {
-      let delId = likeProduct.filter($id=> $id !=id)
-      setLikeProduct(delId)
-    }else{
-      setLikeProduct([...likeProduct,id])
+    const isLike = likeProduct.includes(id);
+    //console.log(isLike);
+    if (isLike) {
+      let delId = likeProduct.filter(($id) => $id != id);
+      setLikeProduct(delId);
+    } else {
+      setLikeProduct([...likeProduct, id]);
     }
-
   };
 
   const handleClick = (e) => {
@@ -30,11 +28,7 @@ export default function Card({ id, title, description, image, price }) {
       image,
       price,
     });
-
-
   };
-
-
 
   return (
     <div className=" relative">

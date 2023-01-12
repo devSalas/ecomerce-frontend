@@ -15,6 +15,9 @@ module.exports = {
       },
       animation: {
         modal: 'modal 1s ease-in-out ',
+      },
+      colors:{
+        main: "#A69D8D",
       }
     
     },
