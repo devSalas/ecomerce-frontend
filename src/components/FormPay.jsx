@@ -23,7 +23,7 @@ const FormPay = () => {
     if(!isAuthenticated) return;
 
     if(products.length <= 0) {
-      alert("porfavor primer ocompra algo")
+      alert("porfavor primero compra algo")
     };
 
 

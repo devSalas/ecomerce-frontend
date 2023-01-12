@@ -5,12 +5,19 @@ import {useStore} from "../zustand/store";
 export default function CarritoModal({ click }) {
   const store = useStore();
   
-  const total = store.products.reduce((prev, curr) => prev + curr.price, 0);
+  let total = store.products.reduce((prev, curr) => prev + curr.price, 0);
 
   const hanldeClick=(evt)=>{
     store.setPriceTotal(total);
   }
 
+  const handleRemoveProduct=(evt,id,price)=>{
+    evt.preventDefault();
+    store.setPriceTotal(total);
+    let delProduct= store.products.filter(product=>product.id !== id)
+    console.log(delProduct)
+    store.removeOneProduct(delProduct)
+  }
 
 
   return (
@@ -25,7 +32,7 @@ export default function CarritoModal({ click }) {
           <li className="flex gap-2 justify-between" key={id}>
             <img className="w-10 h-10" src={image} alt="" />
             <p className="w-60">{title}</p>
-            <p className="font-semibold w-16">${price}</p>
+            <div className="font-semibold w-16">${price} <p className="aspect-square w-6 h-6 m-auto grid place-content-center   rounded-full"><img onClick={(evt)=> handleRemoveProduct(evt,id,price)} className="w-full h-full" src="../public/x-circle.svg" alt="" /></p> </div>
           </li>
         ))}
       </ul>

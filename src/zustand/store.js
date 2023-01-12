@@ -6,8 +6,10 @@ export const  useStore = create((set) => ({
   setPriceTotal:($price) =>set(state => ({...state,priceTotal:$price}) ),
 
   addProduct: (product) => set(state => ({ products: [...state.products, product] })),
+  removeOneProduct: ($products) => set(state => ({ products: $products })),
+  
   removeProduct: () => set(state => ({...state,products:[] })),
-  /* removeAllBears: () => set({ products: 0 }), */
+  
 }))
 
 export const useStoreSearchProduct = create((set)=>({
@@ -21,7 +23,7 @@ export const useStoreLike =create((set)=>({
 }))
 
 export const useStoreModal =create((set)=>({
-  isActiveModal:true,
+  isActiveModal:false,
   setActiveModal:($active) => (set(state=>({isActiveModal:$active})))
 }))
 
