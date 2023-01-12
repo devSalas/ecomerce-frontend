@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CarritoModal from "./CarritoModal";
-import {useStore} from "../zustand/store";
+import { useStore } from "../zustand/store";
 
 export default function Carrito() {
   const [active, setActive] = useState(false);

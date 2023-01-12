@@ -1,16 +1,18 @@
 import Home from "./page/Home";
+import Nav from "./components/Nav";
+import ProductDetails from "./page/ProductDetails";
+import StripePay from "./services/StripePay";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Route, Routes } from "react-router-dom";
-import ProductDetails from "./page/ProductDetails";
-import Nav from "./components/Nav";
-import StripePay from "./services/StripePay";
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
 const queryClient = new QueryClient({
   defaultOptions: {
-    queries:{
-      staleTime:Infinity
-    }
-    }
+    queries: {
+      staleTime: Infinity,
+    },
+  },
 });
 
 function App() {
@@ -21,9 +23,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/productDetails/:id" element={<ProductDetails />} />
-          <Route path="/paymenMethod" element={<StripePay/>} />
+          <Route path="/paymenMethod" element={<StripePay />} />
         </Routes>
-        <ReactQueryDevtools/>
+        <ReactQueryDevtools />
       </div>
     </QueryClientProvider>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 import { useStore } from "../zustand/store";
 
 export default function CarritoCard({ id, title, image, price }) {

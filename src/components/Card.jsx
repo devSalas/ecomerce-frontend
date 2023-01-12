@@ -12,7 +12,7 @@ export default function Card({ id, title, description, image, price }) {
 
   const handleChange = (e) => {
     const isLike = likeProduct.includes(id);
-    console.log(isLike);
+    //console.log(isLike);
     if (isLike) {
       let delId = likeProduct.filter(($id) => $id != id);
       setLikeProduct(delId);

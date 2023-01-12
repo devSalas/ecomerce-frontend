@@ -1,7 +1,7 @@
-import React from "react";
 import Card from "./Card";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "../services/fechtProduct";
+import Spinner from "./Spinner";
 
 export default function View() {
   let { data, isLoading } = useQuery({
@@ -9,7 +9,7 @@ export default function View() {
     queryFn: getProducts,
   });
 
-  if (isLoading) return <div>cargando...</div>;
+  if (isLoading) return <Spinner />;
 
   return (
     <div className="p-4">

@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getCategories, getProductsByCategory } from "../services/fechtProduct";
 
@@ -16,6 +15,8 @@ export default function CategorySlider() {
     </div>
   );
 }
+
+//falta implementar
 
 function Category({ title }) {
   const { data } = useQuery({

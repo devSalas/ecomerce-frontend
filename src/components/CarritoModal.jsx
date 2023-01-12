@@ -1,4 +1,3 @@
-import React from "react";
 import { useStore } from "../zustand/store";
 import CarritoCard from "./CarritoCard";
 import { Link } from "react-router-dom";

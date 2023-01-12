@@ -42,14 +42,6 @@ const SearchProducts = () => {
           />
         ))}
       </div>
-      {/* 
-    <div>
-      {data?.map(({ id, title, description, price, image })=>{
-        if()
-      
-      
-      })}
-    </div> */}
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
-import { getProducts, getProductById } from "../services/fechtProduct";
-import {useStore} from "../zustand/store";
+import Spinner from "../components/Spinner";
+import { getProductById } from "../services/fechtProduct";
+import { useStore } from "../zustand/store";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -9,11 +10,10 @@ const ProductDetails = () => {
 
   const { data, isLoading } = useQuery({
     queryKey: ["products", id],
-    queryFn: () => getProductById(id)
+    queryFn: () => getProductById(id),
   });
 
-  if (isLoading) return <div>cargando ...</div>;
-
+  if (isLoading) return <Spinner />;
 
   const handleClick = () => {
     const { id, title, image, price } = data;
@@ -26,38 +26,27 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="h-screen w-full grid  max-w-lg grid-rows-[10% ,50% ,40%] md:grid-rows-[100px,1fr]   md:px-4 md:grid-cols-8 md:max-w-6xl m-auto">
-      <nav className="w-full   text-white flex justify-between items-center p-2 pt-4 md:col-span-8">
-        <button className="  p-2 sm:p-0 rounded-sm"> 
-        <Link to="/">
-          <img className="w-10 border-2 border-black p-2 rounded-sm" src="../../public/back.png"  alt="" /> 
-        </Link> 
+    <main className="w-full max-w-7xl m-auto md:grid grid-cols-2 ">
+      <section className="flex h-14  items-center gap-2 col-start-2">
+        <button className="p-2 sm:p-0 rounded-sm">
+          <Link to="/">
+            <img className="w-10 p-2 " src="../../public/back.png" alt="" />
+          </Link>
         </button>
-
         <h1 className="text-black font-bold text-2xl">Producto Detalles</h1>
+      </section>
 
-        <div className="w-10 h-10 rounded-full border-2 border-slate-400">
-          <a href="" className="block w-full h-full p-2">
-            <img
-              className="block w-full h-full"
-              src="shopping-cart.svg"
-              alt=""
-            />
-          </a>
-        </div>
-      </nav>
-
-      <div className=" md:col-span-3 h-auto">
-        <figure className="h-full sm:m-auto  md:max-w-sm  sm:max-h-56  sm:aspect-square ">
+      <section className="row-start-1 row-span-2 h-auto">
+        <figure className="h-full sm:aspect-square p-8">
           <img
-            className="m-auto sm:w-full h-full max-h-80 md:h-auto "
+            className="m-auto sm:w-full h-full max-h-80 md:h-auto object-contain"
             src={data?.image}
             alt=""
           />
         </figure>
-      </div>
+      </section>
 
-      <div className="relative px-4 md:col-span-5 md:grid md:place-content-start gap-8">
+      <section className="relative px-4 ">
         <div className="absolute right-2 top-2">
           <img src="" alt="" />
         </div>
@@ -77,8 +66,8 @@ const ProductDetails = () => {
             <span className="px-2">{data?.price}</span>
           </button>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

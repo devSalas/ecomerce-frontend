@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
-    <div className="border">
+    <div className="border border-main/20">
       <div className="flex justify-between px-2 py-2 items-center max-w-7xl m-auto">
         <div>
           <Link to="/">
