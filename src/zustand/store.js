@@ -3,7 +3,7 @@ import create from 'zustand'
 export const  useStore = create((set) => ({
   products: [],
   addProduct: (product) => set((state) => ({ products: [...state.products, product] })),
-  /* removeAllBears: () => set({ products: 0 }), */
+  removeProduct: (id) => set((state) => ({ products: state.products.filter(el=>el.id !== id)})),
 }))
 
 export const useStoreSearchProduct = create((set)=>({

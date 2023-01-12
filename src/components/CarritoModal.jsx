@@ -1,5 +1,6 @@
 import React from "react";
-import {useStore} from "../zustand/store";
+import { useStore } from "../zustand/store";
+import CarritoCard from "./CarritoCard";
 
 export default function CarritoModal({ click }) {
   const store = useStore();
@@ -15,11 +16,13 @@ export default function CarritoModal({ click }) {
       <h2 className="p-4 text-lg font-medium">Products:</h2>
       <ul className="flex flex-col gap-8 p-4 h-3/5 overflow-y-scroll overflow-hidden">
         {store?.products?.map(({ id, title, image, price }) => (
-          <li className="flex gap-2 justify-between" key={id}>
-            <img className="w-10 h-10" src={image} alt="" />
-            <p className="w-60">{title}</p>
-            <p className="font-semibold w-16">${price}</p>
-          </li>
+          <CarritoCard
+            key={id}
+            id={id}
+            title={title}
+            image={image}
+            price={price}
+          />
         ))}
       </ul>
       <p className="p-4">
