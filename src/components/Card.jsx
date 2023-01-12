@@ -30,8 +30,6 @@ export default function Card({ id, title, description, image, price }) {
     });
   };
 
-  console.log(likeProduct);
-
   return (
     <div className=" relative">
       <div className="border aspect-square p-2">

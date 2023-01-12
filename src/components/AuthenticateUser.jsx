@@ -1,5 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
+
+/* Component children */
 const LogIn = () => {
   const { loginWithRedirect } = useAuth0();
 
@@ -16,7 +18,7 @@ const LogIn = () => {
     </div>
   );
 };
-
+/* Component children */
 const Logout = () => {
   const { logout } = useAuth0();
   return (
@@ -31,9 +33,10 @@ const Logout = () => {
   );
 };
 
+
+/* Component Main */
 const AuthenticateUser = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  console.log({ user, isAuthenticated, isLoading });
   return !isAuthenticated ? <LogIn /> : <Logout />;
 };
 export default AuthenticateUser;

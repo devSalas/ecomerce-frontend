@@ -8,13 +8,12 @@ const ProductDetails = () => {
   const store = useStore();
 
   const { data, isLoading } = useQuery({
-    queryKey: ["products", "id"],
-    queryFn: () => getProductById(id),
+    queryKey: ["products", id],
+    queryFn: () => getProductById(id)
   });
 
   if (isLoading) return <div>cargando ...</div>;
 
-  console.log(data);
 
   const handleClick = () => {
     const { id, title, image, price } = data;
