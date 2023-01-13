@@ -8,7 +8,7 @@ export default function CarritoCard({ id, title, image, price }) {
   };
 
   return (
-    <li className="flex gap-2">
+    <li className="flex gap-2 hover:bg-neutral-200 p-2 rounded">
       <img className="w-10 h-10" src={image} alt="" />
       <p className="w-60">{title}</p>
       <p className="font-semibold w-16">${price}</p>

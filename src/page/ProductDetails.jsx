@@ -26,18 +26,20 @@ const ProductDetails = () => {
   };
 
   return (
-    <main className="w-full max-w-7xl m-auto md:grid grid-cols-2 ">
-      <section className="flex h-14  items-center gap-2 col-start-2">
+    <main className="w-full max-w-7xl m-auto md:grid grid-cols-2">
+      <section className="flex h-14 md:hidden items-center gap-2 px-4">
         <button className="p-2 sm:p-0 rounded-sm">
           <Link to="/">
-            <img className="w-10 p-2 " src="../../public/back.png" alt="" />
+            <img className="w-10 p-2 " src="/back.png" alt="" />
           </Link>
         </button>
-        <h1 className="text-black font-bold text-2xl">Producto Detalles</h1>
+        <h1 className="text-neutral-800 font-semibold text-2xl">
+          Producto Detalles
+        </h1>
       </section>
 
-      <section className="row-start-1 row-span-2 h-auto">
-        <figure className="h-full sm:aspect-square p-8">
+      <section className="row-start-1 p-4 md:p-8">
+        <figure className=" p-8 border h-96">
           <img
             className="m-auto sm:w-full h-full max-h-80 md:h-auto object-contain"
             src={data?.image}
@@ -46,24 +48,32 @@ const ProductDetails = () => {
         </figure>
       </section>
 
-      <section className="relative px-4 ">
-        <div className="absolute right-2 top-2">
-          <img src="" alt="" />
+      <section className="relative px-4 col-start-2">
+        <div className="hidden md:flex py-8 items-center gap-2">
+          <button className="p-2 sm:p-0 rounded-sm">
+            <Link to="/">
+              <img className="w-10 p-2 " src="/back.png" alt="" />
+            </Link>
+          </button>
+          <h1 className="text-neutral-800 font-semibold text-2xl">
+            Producto Detalles
+          </h1>
         </div>
-        <h3 className="font-semibold text-xl">{data?.title}</h3>
-        <p>
-          <span>🎇 {data?.rating?.rate}</span>{" "}
-          <span>{data?.rating?.count} reviews</span>
+
+        <h3 className="font-semibold text-xl text-sky-600">{data?.title}</h3>
+        <p className="py-4">
+          <span>🎇 {data?.rating?.rate}</span>
+          <span> {data?.rating?.count} reviews</span>
         </p>
         <p className="text-sm m-2">{data?.description}</p>
-        <div className="py-4 m-2 max-w-xs">
+        <div className="py-4 m-auto max-w-xs">
           <button
             onClick={handleClick}
-            className="w-full bg-sky-500 text-white rounded-3xl py-2"
+            className="w-full bg-sky-500 text-white rounded-3xl py-2 hover:bg-sky-600 transition-all hover:shadow-lg"
           >
-            <span className="px-2">Add Item to Bag</span>
-            <span className="text-white">|</span>
-            <span className="px-2">{data?.price}</span>
+            <span className="">Add Item to Bag</span>
+            <span className="px-2">|</span>
+            <span className="">${data?.price}</span>
           </button>
         </div>
       </section>
