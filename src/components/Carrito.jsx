@@ -10,6 +10,7 @@ export default function Carrito() {
   const handleClick = (e) => {
     setActive(!active);
   };
+
   return (
     <>
       <button className="relative w-10 h-10" onClick={handleClick}>

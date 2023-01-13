@@ -27,7 +27,6 @@ export default function Card({ id, title, description, image, price }) {
       title,
       image,
       price,
-      cantidad: 1,
     });
   };
 
