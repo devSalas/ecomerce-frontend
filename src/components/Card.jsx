@@ -27,12 +27,13 @@ export default function Card({ id, title, description, image, price }) {
       title,
       image,
       price,
+      cantidad: 1,
     });
   };
 
   return (
-    <div className=" relative">
-      <div className="border aspect-square p-2 hover:scale-105 hover:border-2 hover:border-black">
+    <div className="relative">
+      <div className="border aspect-square p-2 hover:border-black hover:rounded-lg transition-all">
         <Link to={`/productDetails/${id}`}>
           <img
             className="w-full h-full object-contain "
@@ -51,13 +52,17 @@ export default function Card({ id, title, description, image, price }) {
         />
       </div>
       <div className="p-2">
-        <h4 className="font-medium">{title}</h4>
-        <p className="text-neutral-500 mb-4">{description.slice(0, 10)}</p>
+        <Link to={`/productDetails/${id}`}>
+          <h4 className="font-medium hover:text-sky-500 transition-all">
+            {title}
+          </h4>
+        </Link>
+        <p className="text-neutral-500 mb-4">{description.slice(0, 20)}...</p>
         <p className="font-medium">${price}</p>
       </div>
       <button
         onClick={handleClick}
-        className="absolute bottom-2 right-2 w-10 h-10 hover:bg-sky-500 text-white bg-sky-400 rounded-full"
+        className="absolute bottom-2 right-2 w-10 h-10 hover:bg-sky-500 text-white bg-sky-400 rounded-full transition-all hover:shadow-lg"
       >
         +
       </button>

@@ -13,7 +13,7 @@ export default function Buscador() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="border px-4 py-2 rounded-full flex gap-2"
+      className="border px-4 py-2 rounded-full flex gap-2 transition-all hover:border-sky-400"
     >
       <button className="">
         <svg
