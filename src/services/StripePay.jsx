@@ -27,7 +27,7 @@ export default function StripePay() {
     // Create PaymentIntent as soon as the page loads
     const priceTotalrounded = Math.round(priceTotal * 100)
 
-    fetch("http://localhost:3000/create-payment-intent", {
+    fetch("https://ecomerce-back.vercel.app/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({products ,priceTotalrounded}),
