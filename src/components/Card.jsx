@@ -32,10 +32,10 @@ export default function Card({ id, title, description, image, price }) {
 
   return (
     <div className=" relative">
-      <div className="border aspect-square p-2">
+      <div className="border aspect-square p-2 hover:scale-105 hover:border-2 hover:border-black">
         <Link to={`/productDetails/${id}`}>
           <img
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain "
             src={image}
             alt={title}
           />

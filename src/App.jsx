@@ -18,7 +18,7 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div>
+      <div className=" m-auto">
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />

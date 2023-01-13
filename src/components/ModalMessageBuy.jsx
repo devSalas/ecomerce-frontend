@@ -10,7 +10,7 @@ const ModalMessageBuy = () => {
   };
 
   return createPortal(
-    <div className=" grid place-content-center   w-screen h-screen backdrop-brightness-50  ">
+    <div className="fixed grid place-content-center   w-screen h-screen backdrop-brightness-50  ">
       <div className="bg-cyan-400 grid place-content-center p-4 shadow-lg shadow-cyan-500/50 rounded-md mx-4 animate-modal">
         <div
           className="  max-w-md max-h-96 py-10 text-center  rounded-md  font-extrabold text-2xl  sm:text-3xl 
@@ -21,11 +21,11 @@ const ModalMessageBuy = () => {
           </div>
           <span className="">✨🎉</span>
         </div>
-        <div>
+        <div className="text-center">
           <button
             onClick={handleClick}
             type="button"
-            className="m-auto py-2  px-4 text-white rounded-md  bg-indigo-500 "
+            className="m-auto py-2  px-4 text-white rounded-md  bg-indigo-500  "
           >
             <Link to="/">Aceptar</Link>
           </button>

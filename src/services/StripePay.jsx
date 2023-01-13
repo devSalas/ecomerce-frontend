@@ -1,28 +1,66 @@
-import { Elements } from "@stripe/react-stripe-js";
+import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import { Link } from "react-router-dom";
-import FormPay from "../components/FormPay";
-/* import FormPay from "./components/FormPay" */
+import { Elements } from "@stripe/react-stripe-js";
+
+import CheckoutForm from "./CheckoutForm";
+import "./stripe.css";
+import { useStore } from "../zustand/store";
+import MessageCardVoid from "../components/MessageCardVoid";
+
+
 
 const stripePromise = loadStripe(
   "pk_test_51MNjItANEHdq6jhMvuGZgom8AY43AkKlYRRbEgOv94vpes2BZtGkq4wyeh5nZ7shYqRERTcQ2KclbBwxHs2ba4sR00IdtXhx9b"
 );
 
-const StripePay = () => {
+
+// Make sure to call loadStripe outside of a component’s render to avoid
+// recreating the Stripe object on every render.
+// This is your test publishable API key.
+
+export default function StripePay() {
+  const [clientSecret, setClientSecret] = useState("");
+  const {products,priceTotal} = useStore()
+  const [isError, setIsError] = useState(false);
+  
+  useEffect(() => {
+    // Create PaymentIntent as soon as the page loads
+    const priceTotalrounded = Math.round(priceTotal * 100)
+
+    fetch("http://localhost:3000/create-payment-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({products ,priceTotalrounded}),
+    })
+      .then((res) => res.json())
+      .then((data) =>{
+        if(data.isError) return setIsError(true)
+        setClientSecret(data.clientSecret)
+      });
+  }, []);
+
+  const appearance = {
+    theme: 'stripe',
+  };
+  const options = {
+    clientSecret,
+    appearance,
+  };
+
   return (
-    <div className="  ">
-      <Elements stripe={stripePromise}>
-        <Link to="/">
-          <img
-            className="w-10 border-2 border-black p-2 rounded-sm m-2 "
-            src="back.png"
-            alt=""
-          />
-        </Link>
-        <FormPay />
-      </Elements>
+    <div className="w-screen m-auto">
+      
+      
+        {(clientSecret) 
+          ?(
+          <Elements options={options} stripe={stripePromise}>
+            <CheckoutForm />
+          </Elements> ) 
+        :<MessageCardVoid/>
+        }
+
+
+      
     </div>
   );
-};
-
-export default StripePay;
+}
