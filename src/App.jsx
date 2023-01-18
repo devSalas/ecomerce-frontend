@@ -6,6 +6,7 @@ import StripePay from "./services/StripePay";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Route, Routes } from "react-router-dom";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import ModalMessageBuy from "./components/ModalMessageBuy";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/productDetails/:id" element={<ProductDetails />} />
           <Route path="/paymenMethod" element={<StripePay />} />
+          <Route path="/buySuccefull" element={<ModalMessageBuy/>} />
         </Routes>
         <ReactQueryDevtools />
       </div>

@@ -20,6 +20,6 @@ export const useStoreLike =create((set)=>({
 }))
 
 export const useStoreModal =create((set)=>({
-  isActiveModal:false,
+  isActiveModal:true,
   setActiveModal:($active) => (set(state=>({isActiveModal:$active})))
 }))

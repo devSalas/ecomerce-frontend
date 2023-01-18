@@ -9,7 +9,7 @@ export default function Nav() {
       <div className="flex justify-between px-2 py-2 items-center max-w-7xl m-auto">
         <div>
           <Link to="/">
-            <img className="h-12" src="./logo.png" alt="" />
+            <img className="h-12" src="logo.png" alt="" />
           </Link>
         </div>
         <div className="flex gap-4">

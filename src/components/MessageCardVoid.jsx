@@ -4,7 +4,7 @@ const MessageCardVoid = () => {
   return (
     <div className='flex flex-col justify-center items-center '>
       <Link to="/" className="flex justify-center items-center text-cyan-900 font-bold">
-        <img className="w-10 p-2 " src="../../public/back.png" alt="" />
+        <img className="w-10 p-2 " src="back.png" alt="" />
         <span>ir a la home</span>
       </Link>
       <h2 className='max-w-sm m-auto my-4 border-2 p-2 mx-2 text-blue-400 font-medium '>

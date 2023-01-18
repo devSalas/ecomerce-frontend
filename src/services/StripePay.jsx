@@ -6,7 +6,8 @@ import CheckoutForm from "./CheckoutForm";
 import "./stripe.css";
 import { useStore } from "../zustand/store";
 import MessageCardVoid from "../components/MessageCardVoid";
-
+import Spinner from "../components/Spinner";
+import { Link } from "react-router-dom";
 
 
 const stripePromise = loadStripe(
@@ -36,6 +37,7 @@ export default function StripePay() {
       .then((data) =>{
         if(data.isError) return setIsError(true)
         setClientSecret(data.clientSecret)
+      
       });
   }, []);
 
@@ -47,6 +49,7 @@ export default function StripePay() {
     appearance,
   };
 
+  if(isError)return ( <MessageCardVoid/>)
   return (
     <div className="w-screen m-auto">
       
@@ -54,10 +57,17 @@ export default function StripePay() {
         {(clientSecret) 
           ?(
           <Elements options={options} stripe={stripePromise}>
+            <Link to="/" className="flex justify-center items-center text-cyan-900 font-bold">
+              <img className="w-10 p-2 " src="back.png" alt="" />
+              <span>ir a la home</span>
+            </Link>
+            
             <CheckoutForm />
           </Elements> ) 
-        :<MessageCardVoid/>
+        :<Spinner/>
         }
+        
+        
 
 
       
