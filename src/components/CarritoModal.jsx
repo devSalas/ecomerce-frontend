@@ -14,7 +14,7 @@ export default function CarritoModal({ click, active }) {
 
   return (
     <div
-      style={active ? { transform: "translateX(100%)" } : {}}
+      style={active ? { transform: "translateX(0)" } : { transform: "translateX(100%)" }}
       className="border z-10 fixed top-0 right-0 md:right-0 bottom-0 md:w-96 w-full bg-white shadow-2xl p-4 transition-all"
     >
       <button
