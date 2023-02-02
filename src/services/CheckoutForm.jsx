@@ -62,7 +62,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url:"ecomerce-frontend-git-dev-devsalas.vercel.app/#/buySuccefull"
+        return_url:"https://ecomerce-frontend.vercel.app/#/buySuccefull"
       },
     });
 
