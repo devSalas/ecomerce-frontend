@@ -51,26 +51,33 @@ export default function StripePay() {
 
   if(isError)return ( <MessageCardVoid/>)
   return (
-    <div className="w-screen m-auto">
-      
-      
+    <div className=" w-screen m-auto grid  place-content-center">
         {(clientSecret) 
           ?(
-          <Elements options={options} stripe={stripePromise}>
+          <Elements options={options} stripe={stripePromise} c>
             <Link to="/" className="flex justify-center items-center text-cyan-900 font-bold">
               <img className="w-10 p-2 " src="back.png" alt="" />
               <span>ir a la home</span>
             </Link>
-            
+            <div className="flex flex-col sm:flex-row p-4 sm:gap-4 lg:gap-16">
+            <div className="bg-slate-200 px-4 py-6 rounded-lg w-full   sm:mt-4   self-start ">
+              <h2 className="font-bold text-lg">Nota</h2>
+              <p className="text-md font-medium">Esto es una aplicación de prueba <br />
+              Por ello, usar los siguientes datos:</p> <br />
+              <li> correo: aleatorio </li>
+              <li>cuenta : 4242 4242 4242 4242</li>
+              <li>Expriación : fecha actual o mayor</li>
+              <li>CVC : 3 numeros aleatorios</li>
+              <li>Pais:  aleatorio</li>
+
+            </div>
             <CheckoutForm />
+
+            </div>
           </Elements> ) 
         :<Spinner/>
         }
         
-        
-
-
-      
     </div>
   );
 }

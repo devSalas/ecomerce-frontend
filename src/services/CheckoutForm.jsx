@@ -32,7 +32,7 @@ export default function CheckoutForm() {
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent.status) {
         case "succeeded":
-          setMessage("Payment succeeded!");
+          setMessage("ya casi listo!");
           break;
         case "processing":
           setMessage("Your payment is processing.");
@@ -86,7 +86,7 @@ export default function CheckoutForm() {
   }
 
   return (
-    <form className="w-80 h-full m-auto border-2 p-2 mt-4 rounded-md" id="payment-form" onSubmit={handleSubmit}>
+    <form className="max-w-sm  h-full w-full m-auto border-2 p-2 mt-4 rounded-md" id="payment-form" onSubmit={handleSubmit}>
       <LinkAuthenticationElement
         id="link-authentication-element"
         onChange={(e) => setEmail(e.target.value )}
